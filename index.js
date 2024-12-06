@@ -10,8 +10,8 @@ const submitGuess = document.getElementById("submitGuess");
 const feedback = document.getElementById("feedback");
 const attempts = document.getElementById("attempts");
 
-// Fonction pour gérer les devinettes
-submitGuess.addEventListener("click", () => {
+// Fonction pour valider une devinette
+function validerDeviner() {
     const guess = parseInt(guessInput.value, 10);
 
     if (isNaN(guess) || guess < min || guess > max) {
@@ -37,4 +37,14 @@ submitGuess.addEventListener("click", () => {
 
     attempts.textContent = `Nombre de tentatives : ${tentative}`;
     guessInput.value = ""; // Réinitialiser le champ de saisie
+}
+
+// Événement pour le clic sur le bouton
+submitGuess.addEventListener("click", validerDeviner);
+
+// Événement pour appuyer sur "Enter" dans le champ d'entrée
+guessInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        validerDeviner();
+    }
 });
