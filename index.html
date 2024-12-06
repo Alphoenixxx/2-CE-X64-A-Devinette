@@ -1,49 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jeu de Devinette</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <script>
-        // Jeu de devinette de nombre
-
-        alert("Bienvenue au jeu de devinette de nombre !");
-        
-        let min = 1;
-        let max = 100;
-
-        const nombreMystere = Math.floor(Math.random() * max) + min; // Nombre entre 1 et 100
-        let tentative = 0;
-        let deviner = false;
-
-        while (!deviner) {
-            const reponse = prompt(`Devinez le nombre mystère entre ${min} et ${max} :`);
-            tentative++;
-
-            if (reponse === null) {
-                alert("Jeu annulé. Merci d'avoir joué !");
-                break;
-            }
-
-            const nombre = parseInt(reponse, 10);
-
-            if (isNaN(nombre)) {
-                alert("Ce n'est pas un nombre valide. Veuillez réessayer !");
-            } else if (nombre < nombreMystere) {
-                alert("C'est plus !");
-            } else if (nombre > nombreMystere) {
-                alert("C'est moins !");
-            } else {
-                alert(`Félicitations ! Vous avez trouvé le nombre ${nombreMystere} en ${tentative} tentative(s).`);
-                deviner = true;
-            }
-        }
-
-    </script>
+    <div class="container">
+        <h1>Jeu de Devinette de Nombre</h1>
+        <p>Essayez de deviner le nombre mystère !</p>
+        <button id="startGame">Commencer le jeu</button>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
