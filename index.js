@@ -9,6 +9,9 @@ document.getElementById("startGame").addEventListener("click", () => {
     let tentative = 0;
     let deviner = false;
 
+    while (!deviner) {
+        const reponse = prompt(`Devinez le nombre mystère entre ${min} et ${max} :`);
+        tentative++;
 
         if (reponse === null) {
             alert("Jeu annulé. Merci d'avoir joué !");
@@ -27,5 +30,5 @@ document.getElementById("startGame").addEventListener("click", () => {
             alert(`Félicitations ! Vous avez trouvé le nombre ${nombreMystere} en ${tentative} tentative(s).`);
             deviner = true;
         }
-    
+    }
 });
